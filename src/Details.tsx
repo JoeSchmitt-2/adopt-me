@@ -11,7 +11,7 @@ import { PetAPIResponse } from "./APIResponsesTypes";
 const Details = () => {
   const [showModal, setShowModal] = useState(false);
   const navigate = useNavigate();
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars, no-unused-vars
   const [_, setAdoptedPet] = useContext(AdoptedPetContext);
   const { id } = useParams();
   const results = useQuery<PetAPIResponse>(["details", id], fetchPet);
@@ -66,10 +66,10 @@ const Details = () => {
   );
 };
 
-function DetailsErrorBoundary(props) {
+function DetailsErrorBoundary() {
   return (
     <ErrorBoundary>
-      <Details {...props} />
+      <Details />
     </ErrorBoundary>
   );
 }
