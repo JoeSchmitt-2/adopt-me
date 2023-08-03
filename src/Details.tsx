@@ -6,24 +6,24 @@ import fetchPet from "./fetchPet";
 import Carousel from "./Carousel";
 import ErrorBoundary from "./ErrorBoundary";
 import Modal from "./Modal";
-import { PetAPIResponse } from "./APIResponsesTypes";
 
 const Details = () => {
-  const [showModal, setShowModal] = useState(false);
-  const navigate = useNavigate();
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars, no-unused-vars
-  const [_, setAdoptedPet] = useContext(AdoptedPetContext);
   const { id } = useParams();
-  const results = useQuery<PetAPIResponse>(["details", id], fetchPet);
 
   if (!id) {
     throw new Error("no id. give me the heckin id.");
   }
 
+  const results = useQuery(["details", id], fetchPet);
+  const [showModal, setShowModal] = useState(false);
+  const navigate = useNavigate();
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars, no-unused-vars
+  const [_, setAdoptedPet] = useContext(AdoptedPetContext);
+
   if (results.isLoading) {
     return (
       <div className="loading-pane">
-        <h2 className="loader">🌀</h2>
+        <h2 className="loader">🐶</h2>
       </div>
     );
   }
