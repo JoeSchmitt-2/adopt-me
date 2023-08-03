@@ -8,8 +8,9 @@
     "build": "vite build",
     "preview": "vite preview",
     "format": "prettier --write \"src/**/*.{js,jsx,tsx,ts}\"",
+    "format:check": "prettier --check \"src/**/*.{js,jsx,tsx,ts}\"",
     "lint": "eslint \"src/**/*.{js,jsx,ts,tsx}\" --quiet",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "typecheck": "tsc --noEmit"
   },
   "keywords": [],
   "author": "",
