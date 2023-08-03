@@ -6,9 +6,10 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import AdoptedPetContext from "./AdoptedPetContext";
 import { Link, BrowserRouter, Routes, Route } from "react-router-dom";
 import Details from "./Details";
+import { Pet } from "./APIResponsesTypes";
 
 const queryClient = new QueryClient({
-  defualtOptions: {
+  defaultOptions: {
     queries: {
       staleTime: Infinity,
       cacheTime: Infinity
@@ -17,7 +18,7 @@ const queryClient = new QueryClient({
 });
 
 const App = () => {
-  const adoptedPetHook = useState(null);
+  const adoptedPetHook = useState(null as Pet | null);
   return (
     <StrictMode>
       <BrowserRouter>
@@ -38,5 +39,10 @@ const App = () => {
 };
 
 const container = document.getElementById("root");
+
+if (!container) {
+  throw new Error("no container");
+}
+
 const root = createRoot(container);
 root.render(<App />);
