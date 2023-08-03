@@ -18,12 +18,12 @@ const queryClient = new QueryClient({
 });
 
 const App = () => {
-  const adoptedPetHook = useState(null as Pet | null);
+  const adoptedPet = useState(null as Pet | null);
   return (
     <StrictMode>
       <BrowserRouter>
         <QueryClientProvider client={queryClient}>
-          <AdoptedPetContext.Provider value={adoptedPetHook}>
+          <AdoptedPetContext.Provider value={adoptedPet}>
             <header>
               <Link to="/">Adopt Me!</Link>
             </header>
