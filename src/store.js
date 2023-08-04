@@ -1,4 +1,4 @@
-import { configureStore, getDefaultMiddleware } from "@reduxjs/toolkit";
+import { configureStore } from "@reduxjs/toolkit";
 import adoptedPet from "./adoptedPetSlice";
 import searchParams from "./searchParamsSlice";
 import { petApi } from "./petApiService";
